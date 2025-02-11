@@ -2,7 +2,7 @@ name: runjob
 
 on:
   schedule:
-    - cron: '15 22 * * *' # At 21:15 UTC i.e. 2:45 AM IST first day of every month 
+    - cron: '*/10 * * * *' # At 21:15 UTC i.e. 2:45 AM IST first day of every month 
   workflow_dispatch:
 
 jobs:
