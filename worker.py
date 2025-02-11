@@ -10,10 +10,21 @@ from seleniumwire import webdriver as wire_webdriver  # Import selenium-wire web
 from webdriver_manager.chrome import ChromeDriverManager
 
 # Proxy configuration
-PROXY_HOSTS = ["80.240.23.220"]
-PROXY_PORT = "16802"
-PROXY_USER = "w45665465104451"
-PROXY_PASS = "hL1TAUiH5J0Z"
+PROXY_HOSTS = [
+    "45.39.206.197",
+    "104.253.151.165",
+    "45.39.206.150",
+    "45.39.206.59",
+    "104.253.151.157",
+    "45.39.206.158",
+    "45.39.206.116",
+    "45.39.206.140",
+    "45.39.206.143",
+    "213.204.18.134"
+]
+PROXY_PORT = "50100"
+PROXY_USER = "helmostafi"
+PROXY_PASS = "qeJb56Yns4"
 
 def setup_driver(proxy_host):
     """Initialize Selenium WebDriver with proxy and auto-install ChromeDriver."""
