@@ -23,9 +23,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install setuptools
+        sudo apt-get install -y xvfb
         pip install -r requirements.txt
 
     - name: Execute Python script
       env:
           AZURESTORE: ${{ secrets.AZURESTORE }}
-      run: python -u worker.py
+      run: |
+        xvfb-run --auto-servernum python -u worker.py
