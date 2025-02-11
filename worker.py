@@ -36,7 +36,6 @@ def setup_driver(proxy_host):
 
     # Automatically install the latest ChromeDriver
     driver = wire_webdriver.Chrome(
-        executable_path=ChromeDriverManager().install(),
         seleniumwire_options=seleniumwire_options,
         options=options
     )
