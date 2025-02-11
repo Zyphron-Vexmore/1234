@@ -1,8 +1,8 @@
 name: runjob
 
 on:
-  schedule:
-    - cron: '*/10 * * * *' # At 21:15 UTC i.e. 2:45 AM IST first day of every month 
+  repository_dispatch:
+    types: [trigger_workflow] 
   workflow_dispatch:
 
 jobs:
