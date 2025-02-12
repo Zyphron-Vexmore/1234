@@ -11,7 +11,7 @@ from seleniumwire import webdriver as wire_webdriver  # Import selenium-wire web
 # from webdriver_manager.chrome import ChromeDriverManager
 
 # Telegram bot configuration
-TELEGRAM_BOT_TOKEN = "7244502796:AAHPRBZlUFIQS3HbF7ZgKixHXPJxLi4bBqg"
+TELEGRAM_BOT_TOKEN = ""
 TELEGRAM_CHAT_ID = "1005895910"
 
 # Proxy configuration
