@@ -9,6 +9,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from seleniumwire import webdriver as wire_webdriver  # Import selenium-wire webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
+
+
 # Proxy configuration
 PROXY_HOSTS = [
     "45.39.206.197",
@@ -28,7 +30,8 @@ PROXY_PASS = "qeJb56Yns4"
 
 def setup_driver(proxy_host):
     """Initialize Selenium WebDriver with proxy and auto-install ChromeDriver."""
-    
+
+    chromedriver_autoinstaller.install()
     # Configure proxy settings
     seleniumwire_options = {
         "proxy": {
