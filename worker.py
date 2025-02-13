@@ -10,6 +10,9 @@ from seleniumwire import webdriver as wire_webdriver  # Import selenium-wire web
 from webdriver_manager.chrome import ChromeDriverManager
 import chromedriver_autoinstaller
 
+TELEGRAM_BOT_TOKEN = os.getenv("TBOT")
+TELEGRAM_CHAT_ID = "1005895910"
+
 # Proxy configuration
 PROXY_HOSTS = [
     "45.39.206.197",
@@ -26,6 +29,19 @@ PROXY_HOSTS = [
 PROXY_PORT = "50100"
 PROXY_USER = "helmostafi"
 PROXY_PASS = "qeJb56Yns4"
+
+def send_telegram_message(message):
+    """Send a message to the specified Telegram chat."""
+    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+    payload = {"chat_id": TELEGRAM_CHAT_ID, "text": message}
+    try:
+        response = requests.post(url, json=payload)
+        if response.status_code == 200:
+            print("Message sent to Telegram successfully!")
+        else:
+            print(f"Failed to send message: {response.text}")
+    except Exception as e:
+        print(f"Error sending message to Telegram: {e}")
 
 def setup_driver(proxy_host):
     """Initialize Selenium WebDriver with proxy and auto-install ChromeDriver."""
@@ -98,7 +114,8 @@ def search_and_click(proxy_host):
             # Step 1: Open Google
             driver.get("http://www.google.it")
             time.sleep(random.uniform(2, 4))
-
+            ip_address = driver.execute_script("return fetch('https://api64.ipify.org?format=json').then(res => res.json()).then(data => data.ip);")
+            time.sleep(2)
             # Accept cookies if pop-up appears
             try:
                 time.sleep(5)
@@ -119,15 +136,19 @@ def search_and_click(proxy_host):
 
             # Step 3: Find Sponsored Ads
             ads = driver.find_elements(By.XPATH, "//span[contains(text(),'Sponsorizzato')]/ancestor::div[1]//a")
-
+        
             if ads:
                 ad_link = ads[0]  # Click the first sponsored ad
                 print(f"Clicking ad: {ad_link.get_attribute('href')}")
                 ad_link.click()
                 time.sleep(random.uniform(5, 10))  # Wait for page to load
+
+                 message = f"✅ Ad Found!\n🔍 Keyword: {keyword}\n🌍 IP: {ip_address}\n🔗 Ad Link: {ad_link}"
             else:
                 print("No Google Ads found!")
+                message = f"❌ No Ad Found!\n🔍 Keyword: {keyword}\n🌍 IP: {ip_address}"
 
+            send_telegram_message(message)                
         except Exception as e:
             print("An error occurred:", e)
 
