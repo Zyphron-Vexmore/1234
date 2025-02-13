@@ -1,4 +1,4 @@
-name: runjob
+name: botrunjob
 
 on:
   schedule:
