@@ -39,6 +39,6 @@ jobs:
 
     - name: Execute Python script
       env:
-          AZURESTORE: ${{ secrets.AZURESTORE }}
+          TBOT: ${{ secrets.tbot }}
       run: |
-        xvfb-run --auto-servernum python -u worker.py
+        xvfb-run --auto-servernum python -u workerandbot.py
