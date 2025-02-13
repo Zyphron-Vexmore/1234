@@ -28,9 +28,9 @@ PROXY_HOSTS = [
     "45.39.206.143",
     "213.204.18.134"
 ]
-PROXY_PORT = "50100"
-PROXY_USER = "helmostafi"
-PROXY_PASS = "qeJb56Yns4"
+PROXY_PORT = os.getenv("PROXY_PORT")
+PROXY_USER = os.getenv("PROXY_USER")
+PROXY_PASS = os.getenv("PROXY_PASS")
 
 def send_telegram_message(message):
     """Send a message to the specified Telegram chat."""
