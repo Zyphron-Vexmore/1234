@@ -142,8 +142,9 @@ def search_and_click(proxy_host):
                 print(f"Clicking ad: {ad_link.get_attribute('href')}")
                 ad_link.click()
                 time.sleep(random.uniform(5, 10))  # Wait for page to load
-
-                 message = f"✅ Ad Found!\n🔍 Keyword: {keyword}\n🌍 IP: {ip_address}\n🔗 Ad Link: {ad_link}"
+                
+                message = f"✅ Ad Found!\n🔍 Keyword: {keyword}\n🌍 IP: {ip_address}\n🔗 Ad Link: {ad_link}"
+                
             else:
                 print("No Google Ads found!")
                 message = f"❌ No Ad Found!\n🔍 Keyword: {keyword}\n🌍 IP: {ip_address}"
