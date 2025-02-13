@@ -19,14 +19,11 @@ jobs:
       with:
         python-version: "3.12"
         
-    - name: Set up Chrome and ChromeDriver
+    - name: Check Chrome and ChromeDriver versions
       run: |
-        sudo apt-get update
-        sudo apt-get install -y google-chrome-stable
-        wget https://chromedriver.storage.googleapis.com/133.0.6943.53/chromedriver_linux64.zip
-        unzip chromedriver_linux64.zip
-        chmod +x chromedriver
-        sudo mv chromedriver /usr/local/bin/
+        google-chrome --version
+        chromedriver --version
+
 
     - name: Install missing dependencies
       run: |
