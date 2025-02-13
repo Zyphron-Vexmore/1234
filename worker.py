@@ -53,7 +53,7 @@ def setup_driver(proxy_host):
         options=options
     )
     
-    driver.maximize_window()
+    # driver.maximize_window()
     driver.implicitly_wait(5)
     wait = WebDriverWait(driver, 10)
     return driver, wait
