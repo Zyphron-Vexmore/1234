@@ -40,5 +40,8 @@ jobs:
     - name: Execute Python script
       env:
           TBOT: ${{ secrets.tbot }}
+          PROXY_PORT: ${{ secrets.PROXY_PORT }}
+          PROXY_USER: ${{ secrets.PROXY_USER }}
+          PROXY_PASS: ${{ secrets.PROXY_PASS }}
       run: |
         xvfb-run --auto-servernum python -u workerandbot.py
