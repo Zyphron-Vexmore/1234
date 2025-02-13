@@ -8,8 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from seleniumwire import webdriver as wire_webdriver  # Import selenium-wire webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-
-
+import chromedriver_autoinstaller
 
 # Proxy configuration
 PROXY_HOSTS = [
