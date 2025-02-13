@@ -5,13 +5,14 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import time
 import random
+import os
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from seleniumwire import webdriver as wire_webdriver  # Import selenium-wire webdriver
 # from webdriver_manager.chrome import ChromeDriverManager
 
 # Telegram bot configuration
-TELEGRAM_BOT_TOKEN = ""
+TELEGRAM_BOT_TOKEN = f"{os.environ['tbot']}"
 TELEGRAM_CHAT_ID = "1005895910"
 
 # Proxy configuration
