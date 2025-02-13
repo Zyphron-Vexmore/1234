@@ -59,14 +59,14 @@ def setup_driver(proxy_host):
     # Set Chrome options
     options = webdriver.ChromeOptions()
     options.add_argument("--disable-blink-features=AutomationControlled")
-    
+    options.add_argument("--window-size=1920,1080")
     # Automatically install the latest ChromeDriver
     driver = wire_webdriver.Chrome(
         seleniumwire_options=seleniumwire_options,
         options=options
     )
     
-    driver.maximize_window()
+    # driver.maximize_window()
     driver.implicitly_wait(5)
     wait = WebDriverWait(driver, 10)
     return driver, wait
