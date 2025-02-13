@@ -45,7 +45,7 @@ def setup_driver(proxy_host):
     # options.add_argument("--headless=new")  # Enable headless mode for automation
     # options.add_argument("--no-sandbox")  
     # options.add_argument("--disable-dev-shm-usage")  
-    options.add_argument("--window-size=1920,1080")
+    # options.add_argument("--window-size=1920,1080")
 
     # Automatically install the latest ChromeDriver
     driver = wire_webdriver.Chrome(
