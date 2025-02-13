@@ -18,6 +18,19 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: "3.12"
+        
+    - name: Set up Chrome and ChromeDriver
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y google-chrome-stable
+        wget https://chromedriver.storage.googleapis.com/133.0.6943.53/chromedriver_linux64.zip
+        unzip chromedriver_linux64.zip
+        chmod +x chromedriver
+        sudo mv chromedriver /usr/local/bin/
+
+    - name: Install missing dependencies
+      run: |
+        sudo apt-get install -y libatk-bridge2.0-0 libatspi2.0-0 libgbm1
 
     - name: Install dependencies
       run: |
